@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { fetchFromApi } from '../utils/fetchFromApi';
 import ReactPlayer from 'react-player';
-import {FaCheckCircle} from "react-icons/fa"
+import {RelatedVideoSection} from "./index"
+import { abbreviateNumber } from "js-abbreviation-number";
 import {BiSolidDislike, BiSolidLike} from "react-icons/bi"
 import {demoProfilePicture} from "../utils/constants"
 
@@ -10,54 +11,77 @@ const VideoDetails = () => {
   const [videoDetail, setVideoDetail] = useState(null);
   const [relatedVideos, setRelatedVideos] = useState([]);
 
-  console.log("videDetails===",videoDetail);
-  console.log("Related videos===", relatedVideos);
   const { id } = useParams();
       
     useEffect(()=>{
-          fetchFromApi(`videos?id=${id}&part=snippet,statistics`)
-          .then((data)=>setVideoDetail(data.items[0]));
+            fetchFromApi(`video?id=${id}`)
+            .then((data)=>{
+                // console.log("videos----",data);
+                setVideoDetail(data)
+            })
 
-          fetchFromApi(`/search?relatedToVideoId=${id}part=snippet%2Cid&type=video`)
-          .then((data)=>setRelatedVideos(data.items))
+          fetchFromApi(`related?id=${id}`)
+          .then((data)=>setRelatedVideos(data.data))
     },[id])
+  // console.log("Related videos===", relatedVideos);
 
-   
+    if(!videoDetail) return "Loading..."
 
-    if(!videoDetail?.snippet) return "Loading..."
+    const {title,channelTitle,viewCount} = videoDetail
 
-    const {snippet:{title, channelId, channelTitle},statistics:{likeCount, viewCount}} = videoDetail;
-   console.log("channeltitle==", channelTitle);
   return (
-    <div className='min-h-[95vh]'>
-      <div className='sm:flex-col md:flex-row'>
+    <div className='flex justify-center flex-row h-[calc(100%-56px)]'>
+      <div className="w-full max-w-[1280px] flex flex-col lg:flex-row ">
+        <div className='flex flex-col lg:w-[calc(100%-350px)] xl:w-[100%-400px] px-16 py-3 lg:py-6 overflow-y-auto mt-14'>
+          <div className=' h-[200px] md:h-[400px] lg:h[400px] xl:h[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0'>
+            <ReactPlayer 
+            url={`http://www.youtube.com/watch?v=${id}`}
+            controls
+            width="95%"
+            height="100%"
+            style={{backgroundColor:"#000000"}}
+            />
+          </div>
 
-        {/* =======React player======= */}
-        <div className='flex-1'>
-          <div className='react-player-main sticky w-[53%]  top-[86px]'>
-            <ReactPlayer url={`http://www.youtube.com/watch?v=${id}`} className="react-player " controls="true"/>
-            <h1 className='text-yt-white text-lg mt-2 max-w-2xl ml-2 font-bold'>{title}</h1>
-
-            <div className='flex justify-between ml-2 py-4'>
-              <Link to={`/channel/${channelId}`}>
-                <div className='flex'>
-                  <img src={demoProfilePicture} alt="profile pic" 
-                  className='w-8 h-auto rounded-full'
-                  />
-                  <h1 className='text-yt-white font-semibold ml-3 '>{channelTitle}</h1>
-                  <FaCheckCircle size={14} className='text-yt-grey ml-2 relative top-[7px]'/>
+          <div className='text-yt-white font-bold text-sm md:text-xl mt-4 line-clamp-2'>
+            {title}
+          </div>
+          <div>
+                  <span className='text-yt-grey '>{`${abbreviateNumber(viewCount)}`} views</span>
                 </div>
-              </Link>
-              <div className='like-dislike flex mt-[-5px] text-yt-white  bg-yt-light cursor-pointer hover:bg-yt-light-black '>
-              <BiSolidLike size={24}/>
-              <p>{parseInt(likeCount).toLocaleString()}</p>
-              <BiSolidDislike className="ml-2 border-l-[1px]" size={25}/>
+
+          <div className='flex justify-between flex-col md:flex-row  mt-4'>
+            <div className='flex'>
+              <div className='flex items-start'>
+                <div className='flex h-11 w-11 rounded-full overflow-hidden'>
+                  <img className='h-full w-full object-cover' src={demoProfilePicture} alt="img" />
+                </div>
+              </div>
+              <div className='flex flex-col ml-3'>
+                <div className='text-yt-white text-md font-semibold flex items-center'>
+                  {channelTitle}
+                </div>
+                
               </div>
             </div>
+            <div className='flex text-yt-white mt-4 md:mt-0'>
+               <div className='flex items-center justify-center h-11 px-6 rounded-3xl bg-yt-light hover:bg-yt-light-black'>
+                   <BiSolidLike className='text-xl text-yt-white '/>
+                   <BiSolidDislike className='text-xl text-yt-white ml-6'/>
+               </div>
+            </div>
+            
           </div>
         </div>
-        {/* =====Related Video===== */}
-        <div>
+
+
+        
+        <div className="flex flex-col py-2 overflow-y-auto lg:w-[350px] xl:w-[400px] md:mt-20 ml-[-20px]">
+          {
+            relatedVideos.map((item, index)=>(
+              <RelatedVideoSection key={index} videos={item}/>
+            ))
+          }
         </div>
       </div>
     </div>

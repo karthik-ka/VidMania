@@ -8,7 +8,7 @@ export const AppContext = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("Home");
   const [videos, setVideos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(true);
 
   useEffect(() => {
     fetchFromApi(`search?query=${selectedCategory}`)

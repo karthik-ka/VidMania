@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { demoThumbnailUrl, demoChannelTitle, 
          demoVideoTitle, demoVideoUrl,} from "../utils/constants";
 import { Context } from "../context/contextAPi";
+import { abbreviateNumber } from "js-abbreviation-number";
+
 
 const VideoCard = ({video:{title,channelTitle,videoId,thumbnail,channelThumbnail,lengthText,publishedText,viewCount}}) => {
 
@@ -31,7 +33,7 @@ const VideoCard = ({video:{title,channelTitle,videoId,thumbnail,channelThumbnail
           </div>
           <div className="">
             <p className="text-yt-grey ml-12 ">{channelTitle || demoChannelTitle}</p>
-            <p className="text-yt-grey ml-12 text-s">{parseInt(viewCount).toLocaleString()} ● {publishedText}</p>
+            <p className="text-yt-grey ml-12 text-s">{`${abbreviateNumber(viewCount)}`} ● {publishedText}</p>
           </div>
         </div>
       </Link>
