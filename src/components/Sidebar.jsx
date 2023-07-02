@@ -5,11 +5,12 @@ import { Context } from '../context/contextAPi';
 
 const Sidebar = () => {
 
-  const {selectedCategory, setSelectedCategory} = useContext(Context);
+  const {selectedCategory, setSelectedCategory, open} = useContext(Context);
 
   return (
-    <div className='yt-scrollbar overflow-auto w-60 bg-yt-black h-[calc(100vh-53px)] mt-14 fixed t-0 l-0 text-yt-white'>
-      <div className='mb-4'>
+
+    <div className={`yt-scrollbar absolute z-40 overflow-auto w-60 bg-yt-black h-[calc(100vh-53px)] mt-14  t-0 l-0 text-yt-white  ${!open && "hidden" }`}>
+      <div className='mb-4 '>
          {
             SideBarItems.Top.map((item)=>{
                 return (

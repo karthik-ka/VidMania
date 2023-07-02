@@ -9,6 +9,7 @@ module.exports = {
       "yt-light-black":"#272727",
       "yt-light":"#181818",
       "yt-light-1":"#212121",
+      "yt-light-2":"#1E1E1E",
       "yt-grey":"grey",
       "yt-blue":"#008ae6"
     },

@@ -5,13 +5,16 @@ export const Context = createContext();
 
 export const AppContext = ({ children }) => {
 
-  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [selectedCategory, setSelectedCategory] = useState("Home");
   const [videos, setVideos] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [open, setOpen] = useState(true)
 
   useEffect(() => {
-    fetchFromApi(`search?part=id%2Csnippet&type=video&q=${selectedCategory}`)
+    fetchFromApi(`search?query=${selectedCategory}`)
     .then((data)=>{
-        setVideos(data.items)
+        console.log("videos==",data.data);
+        setVideos(data.data)
     })
     
   }, [selectedCategory]);
@@ -22,7 +25,11 @@ export const AppContext = ({ children }) => {
         selectedCategory,
         setSelectedCategory,
         videos,
-        setVideos
+        setVideos,
+        searchTerm,
+        setSearchTerm,
+        open,
+        setOpen
       }}
     >
       {children}

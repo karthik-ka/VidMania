@@ -5,7 +5,9 @@
 }
 body{
   background: #0F0F0F;
+  scroll-behavior: smooth;
 }
+
 .yt-scrollbar::-webkit-scrollbar{
   width: 10px;
 }
@@ -19,3 +21,38 @@ body{
 .yt-scrollbar::-webkit-scrollbar-track{
   background: transparent;
 }
+
+.react-player-main{
+  margin-left: 6rem;
+}
+
+.react-player{
+  padding-top: 5rem !important;
+  width: 46rem !important ;
+  height: 29rem !important;
+}
+
+.like-dislike{
+  padding: 8px 18px;
+  border-radius: 50px;
+}
+@media screen and (max-width:600px){
+  .react-player-main{
+    width: 100% !important;
+    margin-left: 0;
+  }
+  .react-player{
+    width: 100% !important;
+    height: 20rem !important;
+  }
+  .sm-device{
+    flex-direction: column;
+    margin-left: 0% !important;
+  }
+  .sm{
+    width: 340px !important;
+    margin-bottom: 5rem;
+    margin-left: 0px !important;
+  }
+}
+

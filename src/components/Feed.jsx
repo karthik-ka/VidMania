@@ -1,18 +1,18 @@
 import React, { useContext } from 'react'
-import Sidebar from './Sidebar'
+import {Sidebar, Videos} from './index'
 import { CategoryItems } from '../utils/constants'
 import "../App.css"
 import { Context } from '../context/contextAPi'
-import Videos from './Videos'
 
 function Feed() {
 
-  const {selectedCategory, setSelectedCategory} = useContext(Context);
+  const {selectedCategory, setSelectedCategory, open} = useContext(Context);
   return (
     <>
-      <Sidebar/>
+    <Sidebar />
+    {/* */}
     {/* Top scrollbar */}
-      <div className='yt-scrollbar w-[calc(100%-240px)] h-[calc(100%-53px)] pt-16 bg-yt-black ml-60'>
+      <div className={`yt-scrollbar w-[calc(100%-240px)] h-[calc(100%-53px)] pt-16 bg-yt-black ${!open ? "ml-6 w-[calc(100%-60px)]" : "ml-60"}`}>
         <div className='flex flex-row  px-3 overflow-x-scroll relative scrollbar-hide'>
           {
             CategoryItems.map((item, index)=>(
@@ -28,9 +28,6 @@ function Feed() {
       </div>
 
     {/* Videos section   */}
-      <div className='text-yt-red ml-64 text-3xl font-bold'>
-        <h2>{selectedCategory}</h2>
-      </div>
       <div>
         <Videos />
       </div>

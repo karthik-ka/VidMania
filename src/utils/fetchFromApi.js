@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL= 'https://youtube-v31.p.rapidapi.com';
+const BASE_URL= 'https://youtube-v3-alternative.p.rapidapi.com';
 
 const options = {
   method: 'GET',
@@ -9,7 +9,7 @@ const options = {
   },
   headers: {
     'X-RapidAPI-Key': '9dfe2b2174mshd6b44469a085306p182e24jsn5b3574874661',
-    'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
+    'X-RapidAPI-Host': 'youtube-v3-alternative.p.rapidapi.com'
   }
 };
   export const fetchFromApi = async (url)=>{
