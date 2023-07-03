@@ -38,7 +38,7 @@ const Navbar = () => {
        {/* Nav middle section  */}
 
       <div className="h-10 flex flex-row items-center flex-1 ml-40">
-        <form onSubmit={handleSubmit} className="bg-yt-black rounded-3xl w-[593px] h-10 border border-yt-light-black flex items-center">
+        <form autoComplete="on" onSubmit={handleSubmit} className="bg-yt-black rounded-3xl w-[593px] h-10 border border-yt-light-black focus:border-yt-blue flex items-center">
           <input
             type="text"
             placeholder="Search"

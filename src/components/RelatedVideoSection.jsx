@@ -18,7 +18,7 @@ const RelatedVideoSection = ({
   },
 }) => {
   return (
-    <div className="sm-device flex justify-start max-w-[calc(100%-26px)] ">
+    <div className="sm-device flex justify-start max-w-[calc(100%-26px)]">
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <div className="relative w-[180px] h-[100px]">
           <img

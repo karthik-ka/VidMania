@@ -61,7 +61,7 @@ body{
   }
   .sm-device{
     flex-direction: column;
-    margin-left: 0% !important;
+    margin-left: 5rem !important;
   }
   .sm{
     width: 340px !important;

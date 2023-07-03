@@ -12,7 +12,7 @@ function Feed() {
     <Sidebar />
     {/* */}
     {/* Top scrollbar */}
-      <div className={`yt-scrollbar w-[calc(100%-240px)] h-[calc(100%-53px)] pt-16 bg-yt-black ${!open ? "ml-6 w-[calc(100%-60px)]" : "ml-60"}`}>
+      <div className={`yt-scrollbar  w-[calc(100%-240px)] h-[calc(100%-53px)] pt-16 bg-yt-black ${!open ? "ml-6 w-[calc(100%-60px)]" : "ml-60"}`}>
         <div className='flex flex-row  px-3 overflow-x-scroll relative scrollbar-hide'>
           {
             CategoryItems.map((item, index)=>(

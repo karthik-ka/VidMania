@@ -25,7 +25,7 @@ const SearchVideoFeed = ({
   return (
     <>
       {type==="channel" && <ChannelCard channelDetails={videos} /> } 
-    <div className="sm-device flex justify-start my-8 max-w-[calc(100%-26px)]">
+    <div className="sm-device flex justify-start my-8 max-w-[calc(100%-56px)]">
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <div className="relative w-[340px] ">
           <img
