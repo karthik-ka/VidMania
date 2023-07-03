@@ -26,8 +26,8 @@ function SearchFeed() {
       <div
         className={`pt-16 bg-yt-black ${!open ? "ml-14" :"ml-72" }`}
       >
-        <h1 className="text-yt-white font-bold text-3xl mb-4 ">
-          Search Results for "{searchTerm}" Videos{" "}
+        <h1 className="text-yt-white sm:font-semibold sm:text-lg mb-4 font-semibold text-sm">
+          Search Results for "{searchTerm}" Videos
         </h1>
         <div>
           {searchVideos.map((item, index) => (

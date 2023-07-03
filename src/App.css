@@ -36,6 +36,20 @@ body{
   padding: 8px 18px;
   border-radius: 50px;
 }
+
+.sm-device:nth-child(2){
+ display: none;
+  /* width: 180px;
+  height: 180px;
+  margin-left: 5rem;
+  border-radius: 100%;
+   */
+}
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 @media screen and (max-width:600px){
   .react-player-main{
     width: 100% !important;

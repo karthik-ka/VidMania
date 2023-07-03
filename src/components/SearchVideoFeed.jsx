@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {ChannelCard} from "./index"
 import {
   demoThumbnailUrl,
   demoChannelTitle,
@@ -17,17 +18,20 @@ const SearchVideoFeed = ({
     lengthText,
     publishedText,
     viewCount,
-    description
-  },
+    description,
+    type
+  },videos
 }) => {
   return (
-    <div className="sm-device flex justify-start my-4 max-w-[calc(100%-26px)] ">
+    <>
+      {type==="channel" && <ChannelCard channelDetails={videos} /> } 
+    <div className="sm-device flex justify-start my-8 max-w-[calc(100%-26px)]">
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className="relative w-[340px]">
+        <div className="relative w-[340px] ">
           <img
             src={thumbnail?.[0]?.url || demoThumbnailUrl}
             alt={title}
-            className="w-[340px] h-[180px] border rounded-xl"
+            className="img-1 w-[340px] h-[180px] border rounded-xl"
           />
           <p className="text-yt-white font-semibold rounded-lg bg-yt-black bg-opacity-90 absolute top-[80%] right-2 pl-2 pr-2">
             {lengthText}
@@ -57,6 +61,7 @@ const SearchVideoFeed = ({
         </div>
       </Link>
     </div>
+    </>
   );
 };
 

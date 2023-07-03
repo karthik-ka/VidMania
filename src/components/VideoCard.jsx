@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { demoThumbnailUrl, demoChannelTitle, 
+import { demoThumbnailUrl, demoChannelTitle, demoProfilePicture,
          demoVideoTitle, demoVideoUrl,} from "../utils/constants";
 import { Context } from "../context/contextAPi";
 import { abbreviateNumber } from "js-abbreviation-number";
@@ -26,10 +26,10 @@ const VideoCard = ({video:{title,channelTitle,videoId,thumbnail,channelThumbnail
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
         <div className="w-[340px] h-[106px] rounded-b-xl mb-5">
           <div className=" flex max-w-[320px]">
-            <img src={channelThumbnail?.[0]?.url} alt="channelImage" 
+            <img src={channelThumbnail?.[0]?.url || demoProfilePicture} alt="channelImage" 
               className="rounded-full w-8 h-8 mt-2"
             />
-            <h3 className="text-yt-white font-medium mr-2 ml-4">{title.slice(0, 45) || demoVideoTitle.slice(0,30)}</h3>
+            <h3 className="text-yt-white font-medium mr-2 ml-4">{title|| demoVideoTitle.slice(0,30)}</h3>
           </div>
           <div className="">
             <p className="text-yt-grey ml-12 ">{channelTitle || demoChannelTitle}</p>

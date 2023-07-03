@@ -3,7 +3,6 @@ import { Context } from "../context/contextAPi";
 import { VideoCard, ChannelCard } from "./index";
 
 const Videos = () => {
-  // console.log("videos==" , videos);
 
   const { videos, open } = useContext(Context);
   return (
