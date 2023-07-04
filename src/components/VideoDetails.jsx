@@ -15,7 +15,7 @@ const VideoDetails = () => {
 
   useEffect(() => {
     fetchFromApi(`video?id=${id}`).then((data) => {
-      console.log("videos----",data);
+      console.log("videos----", data);
       setVideoDetail(data);
     });
 
@@ -23,7 +23,7 @@ const VideoDetails = () => {
       setRelatedVideos(data.data)
     );
   }, [id]);
-  // console.log("Related videos===", relatedVideos);
+  // console.log("videoDetails===", videoDetail);
 
   if (!videoDetail) return "Loading...";
 
@@ -31,28 +31,28 @@ const VideoDetails = () => {
 
   return (
     <div className="flex h-[calc(100%-56px)] flex-row justify-center">
-      <div className="flex w-full max-w-[1280px] flex-col lg:flex-row ">
-        <div className="mt-14 flex flex-col overflow-y-auto px-16 py-3 lg:w-[calc(100%-350px)] lg:py-6 xl:w-[100%-400px]">
-          <div className=" lg:h[400px] xl:h[550px] ml-[-16px] mr-[-16px] h-[200px] md:h-[400px] lg:ml-0 lg:mr-0">
+      <div className="flex w-full max-w-[1280px] flex-col  lg:flex-row">
+        <div className="mt-14 flex flex-col overflow-y-auto  py-3  md:px-14 lg:w-[calc(100%-350px)] lg:py-6 xl:w-[100%-400px]">
+          <div className=" lg:h[400px] xl:h[550px] h-[200px] bg-yt-white md:h-[400px] ">
             <ReactPlayer
               url={`http://www.youtube.com/watch?v=${id}`}
               controls
-              width="95%"
+              width="100%"
               height="100%"
               style={{ backgroundColor: "#000000" }}
             />
           </div>
+          <div className="ml-2">
+            <div className="mt-4 line-clamp-2 text-sm font-bold text-yt-white md:text-xl">
+              {title}
+            </div>
 
-          <div className="mt-4 line-clamp-2 text-sm font-bold text-yt-white md:text-xl">
-            {title}
-          </div>
-          <div>
             <span className="text-yt-grey ">
               {`${abbreviateNumber(viewCount)}`} views
             </span>
           </div>
 
-          <div className="mt-4 flex flex-col justify-between  md:flex-row">
+          <div className="mt-4 flex justify-between md:flex-row m-2">
             <Link to={`/channel/${videoDetail?.channelId}`}>
               <div className="flex">
                 <div className="flex items-start">
@@ -71,7 +71,7 @@ const VideoDetails = () => {
                 </div>
               </div>
             </Link>
-            <div className="mt-4 flex text-yt-white md:mt-0">
+            <div className=" flex text-yt-white md:mt-0">
               <div className="flex h-11 items-center justify-center rounded-3xl bg-yt-light px-6 hover:bg-yt-light-black">
                 <BiSolidLike className="text-xl text-yt-white " />
                 <BiSolidDislike className="ml-6 text-xl text-yt-white" />

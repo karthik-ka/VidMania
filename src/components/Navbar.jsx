@@ -24,26 +24,26 @@ const Navbar = () => {
     // Nav left section
     <div className="fixed z-50 flex h-14 w-full items-center justify-between bg-yt-black pl-4 pr-5">
       <div className="w-10 rounded-full p-2 text-center text-yt-white hover:bg-yt-light-black">
-        <AiOutlineMenu size={20} onClick={() => setOpen(!open)} />
+        <AiOutlineMenu className="sidebar" size={20} onClick={() => setOpen(!open)} />
       </div>
 
-      <div className="w-32 py-5 pr-3">
+      <div className="w-32 py-5 pr-3 ">
         <Link to="/">
-          <img src={logo} alt="logo" className="object-contain" />
+          <img src={logo} alt="logo" className="ml-[-50px] md:ml-[0px]" />
         </Link>
       </div>
 
       {/* Nav middle section  */}
 
-      <div className="ml-40 flex h-10 flex-1 flex-row items-center">
+      <div className="ml-30 md:ml-40 flex h-10 flex-1 flex-row items-center">
         <form
-          autoComplete="on"
           onSubmit={handleSubmit}
-          className="flex h-10 w-[593px] items-center rounded-3xl border border-yt-light-black bg-yt-black focus:border-yt-blue"
+          className="flex h-10 w-[200px] md:w-[593px] items-center rounded-3xl border border-yt-light-black bg-yt-black "
         >
           <input
             type="text"
             placeholder="Search"
+            autoComplete="on"
             className="ml-6 h-6 w-full bg-yt-black text-start align-middle text-yt-white focus:outline"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -71,7 +71,7 @@ const Navbar = () => {
               <FaRegBell size={20} className="text-center text-yt-white"/>
             </div> */}
           <div>
-            <button className="rounded-3xl border-2 border-solid border-yt-blue bg-yt-black px-4 py-1 text-yt-white">
+            <button className="hidden md:block rounded-3xl border-2 border-solid border-yt-blue bg-yt-black px-4 py-1 text-yt-white">
               Sign In
             </button>
           </div>

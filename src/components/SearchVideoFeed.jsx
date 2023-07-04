@@ -26,13 +26,13 @@ const SearchVideoFeed = ({
   return (
     <>
       {type === "channel" && <ChannelCard channelDetails={videos} />}
-      <div className="sm-device my-8 flex max-w-[calc(100%-56px)] justify-start">
+      <div className="searchFeed-section my-8 flex w-[340px] justify-start ">
         <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
           <div className="relative w-[340px] ">
             <img
               src={thumbnail?.[0]?.url || demoThumbnailUrl}
               alt={title}
-              className="img-1 h-[180px] w-[340px] rounded-xl border"
+              className="img-1 h-[180px] w-[340px] rounded-xl border "
             />
             <p className="absolute right-2 top-[80%] rounded-lg bg-yt-black bg-opacity-90 pl-2 pr-2 font-semibold text-yt-white">
               {lengthText}
@@ -41,10 +41,10 @@ const SearchVideoFeed = ({
         </Link>
 
         <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-          <div className=" sm mb-5 ml-4 h-[106px] max-w-[600px] rounded-b-xl md:w-[100%]">
+          <div className="ml-4 h-[106px] w-[340px] md:w-[400px] lg:w-[600px] rounded-b-xl ">
             <div>
               <h3 className="font-medium text-yt-white">
-                {title || demoVideoTitle.slice(0, 30)}
+                {title.slice(0, 30) || demoVideoTitle.slice(0, 30)}
               </h3>
               <p className="text-[13px] text-yt-grey">
                 {parseInt(viewCount).toLocaleString()} ● {publishedText}
@@ -60,7 +60,7 @@ const SearchVideoFeed = ({
                 {channelTitle || demoChannelTitle}
               </p>
             </div>
-            <p className="text-sm text-yt-grey">{description}</p>
+            <p className="text-sm text-yt-grey hidden md:block">{description}</p>
           </div>
         </Link>
       </div>

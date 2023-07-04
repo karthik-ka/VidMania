@@ -22,51 +22,29 @@ body{
   background: transparent;
 }
 
-.react-player-main{
-  margin-left: 6rem;
-}
-
-.react-player{
-  padding-top: 5rem !important;
-  width: 46rem !important ;
-  height: 29rem !important;
-}
-
-.like-dislike{
-  padding: 8px 18px;
-  border-radius: 50px;
-}
-
-.sm-device:nth-child(2){
- display: none;
-  /* width: 180px;
-  height: 180px;
-  margin-left: 5rem;
-  border-radius: 100%;
-   */
-}
 .center{
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
+.searchFeed-section:nth-child(2){
+  display: none;
+   width: 180px;
+   height: 180px;
+   margin-left: 5rem;
+   border-radius: 100%;
+   
+ }
+
 @media screen and (max-width:600px){
-  .react-player-main{
-    width: 100% !important;
-    margin-left: 0;
-  }
-  .react-player{
-    width: 100% !important;
-    height: 20rem !important;
-  }
-  .sm-device{
+  .related-section{
     flex-direction: column;
-    margin-left: 5rem !important;
   }
-  .sm{
-    width: 340px !important;
-    margin-bottom: 5rem;
-    margin-left: 0px !important;
+  .searchFeed-section{
+    flex-direction: column;
+  }
+  .sidebar{
+    display: none;
   }
 }
-

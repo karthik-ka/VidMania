@@ -9,11 +9,10 @@ function Feed() {
   return (
     <>
       <Sidebar />
-      {/* */}
       {/* Top scrollbar */}
       <div
         className={`yt-scrollbar  h-[calc(100%-53px)] w-[calc(100%-240px)] bg-yt-black pt-16 ${
-          !open ? "ml-6 w-[calc(100%-60px)]" : "ml-60"
+          !open ? "ml-4 w-[calc(100%-40px)]" : "ml-60"
         }`}
       >
         <div className="relative flex  flex-row overflow-x-scroll px-3 scrollbar-hide">

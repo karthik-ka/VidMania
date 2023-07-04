@@ -24,7 +24,7 @@ const ChannelDetails = () => {
   return (
     <div className="h-[calc(100%-56px)] bg-yt-black">
       <div
-        className="h-80"
+        className="h-80 w-full"
         style={{
           background:
             "radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 77%, rgba(0,30,98,1) 92%)",
@@ -49,9 +49,9 @@ const ChannelDetails = () => {
         </div>
       </div>
 
-      <div className="ml-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 ">
         {videos.map((item, idx) => (
-          <div className="my-4">
+          <div className="my-4 ml-4">
             <VideoCard key={idx} video={item} />
           </div>
         ))}

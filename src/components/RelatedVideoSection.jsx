@@ -22,13 +22,13 @@ const RelatedVideoSection = ({
   },
 }) => {
   return (
-    <div className="sm-device flex max-w-[calc(100%-26px)] justify-start">
+    <div className="related-section flex ml-8 w-[340px] md:w-full my-2">
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className="relative h-[100px] w-[180px]">
+        <div className="relative h-full w-full md:w-[340px] lg:w-[160px]">
           <img
             src={thumbnail?.[0]?.url || demoThumbnailUrl}
             alt={title}
-            className="h-[100px] w-[180px] rounded-xl border"
+            className="h-[180px] w-[340px] lg:h-[100px] lg:w-[180px] rounded-xl border md:mr-32"
           />
           <p className="absolute right-2 top-[70%] rounded-lg bg-yt-black bg-opacity-90 pl-2 pr-2 text-sm font-semibold text-yt-white">
             {lengthText}
@@ -37,7 +37,7 @@ const RelatedVideoSection = ({
       </Link>
 
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className=" sm mb-5 ml-4 h-[106px] max-w-[600px] rounded-b-xl md:w-[100%]">
+        <div className="h-full md:w-[380px] rounded-b-xl md:ml-4">
           <div>
             <h3 className="font-medium text-yt-white">
               {title.slice(0, 30) || demoVideoTitle.slice(0, 30)}...

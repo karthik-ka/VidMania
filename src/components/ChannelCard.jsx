@@ -5,7 +5,7 @@ import { BsCheckCircleFill } from "react-icons/bs";
 
 const ChannelCard = ({ channelDetails }) => {
   return (
-    <div className="sm-device my-4 flex max-w-[calc(100%-26px)] justify-start ">
+    <div className="searchFeed-section my-4 flex w-[340px] justify-start ">
       <Link to={`/channel/${channelDetails?.channelId || demoChannelUrl}`}>
         <div className="w-[340px] ">
           <img
@@ -16,7 +16,7 @@ const ChannelCard = ({ channelDetails }) => {
         </div>
       </Link>
       <Link to={`/channel/${channelDetails?.channelId || demoChannelUrl}`}>
-        <div className=" sm mb-5 ml-4 mt-6 h-[106px] max-w-[600px] rounded-b-xl text-yt-white md:w-[100%]">
+        <div className=" mt-6 ml-4 h-[106px] w-full md:w-[400px] rounded-b-xl text-yt-white">
           <div className="mb-4 flex">
             <h3 className="text-xl font-bold text-yt-white ">
               {channelDetails.channelTitle}
@@ -26,7 +26,7 @@ const ChannelCard = ({ channelDetails }) => {
           <p className="mb-2 text-sm text-yt-grey ">
             @{channelDetails.title} ● {channelDetails.subscriberCount}
           </p>
-          <p className="text-sm text-yt-grey ">{channelDetails.description}</p>
+          <p className="text-sm text-yt-grey max-w-[340px]">{channelDetails.description}</p>
         </div>
       </Link>
     </div>

@@ -8,9 +8,7 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`yt-scrollbar t-0 l-0 fixed z-40 mt-14 h-[calc(100vh-53px)] w-60  overflow-auto bg-yt-black text-yt-white  ${
-        !open && "hidden"
-      }`}
+      className={`sidebar yt-scrollbar t-0 l-0 fixed z-40 mt-14 h-[calc(100vh-53px)] w-60  overflow-auto bg-yt-black text-yt-white ${!open && "md:hidden"}`}
     >
       <div className="mb-4 ">
         {SideBarItems.Top.map((item) => {

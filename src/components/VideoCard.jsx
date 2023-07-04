@@ -19,13 +19,13 @@ const VideoCard = ({
   // const { open } = useContext(Context);
 
   return (
-    <div className="flex flex-wrap justify-start sm:w-full md:w-[320px]">
+    <div className="flex flex-wrap justify-start w-[380px] md:w-[320px]">
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className="relative">
+        <div className="relative w-[380px] md:w-[320px]">
           <img
             src={thumbnail?.[0]?.url || "demoThumbnailUrl"}
             alt={title}
-            className="h-[180px] w-[340px] rounded-xl border"
+            className="h-[100%] md:h-[180px] w-[100%] md:w-[340px] rounded-xl border"
           />
           <p className="absolute right-2 top-[80%] rounded-lg bg-yt-black bg-opacity-90 pl-2 pr-2 font-semibold text-yt-white">
             {lengthText}
@@ -34,8 +34,8 @@ const VideoCard = ({
       </Link>
 
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className="mb-5 h-[106px] w-[340px] rounded-b-xl">
-          <div className=" flex max-w-[320px]">
+        <div className="mb-5 ml-2 h-[106px] w-[380px] md:w-[330px] rounded-b-xl">
+          <div className=" flex max-w-[330px]">
             <img
               src={channelThumbnail?.[0]?.url || demoProfilePicture}
               alt="channelImage"

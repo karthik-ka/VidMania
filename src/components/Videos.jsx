@@ -6,8 +6,8 @@ const Videos = () => {
   const { videos, open } = useContext(Context);
   return (
     <div
-      className={`grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3
-      ${!open ? "ml-4 mr-4 xl:grid-cols-4 " : "ml-72"}`}
+      className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5
+      ${!open ? "ml-2 md:mx-4 lg:grid-cols-4 " : "ml-5 md:ml-72"}`}
     >
       {videos.map((item, index) => (
         <div key={index}>
