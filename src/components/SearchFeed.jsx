@@ -21,12 +21,10 @@ function SearchFeed() {
 
   return (
     <>
-      <Sidebar/>
+      <Sidebar />
       {/* Videos section   */}
-      <div
-        className={`pt-16 bg-yt-black ${!open ? "ml-14" :"ml-72" }`}
-      >
-        <h1 className="text-yt-white sm:font-semibold sm:text-lg mb-4 font-semibold text-sm">
+      <div className={`bg-yt-black pt-16 ${!open ? "ml-14" : "ml-72"}`}>
+        <h1 className="mb-4 text-sm font-semibold text-yt-white sm:text-lg sm:font-semibold">
           Search Results for "{searchTerm}" Videos
         </h1>
         <div>

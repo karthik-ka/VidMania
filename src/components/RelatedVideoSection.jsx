@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { demoThumbnailUrl, demoChannelTitle, demoVideoTitle, demoVideoUrl,} from "../utils/constants";
+import {
+  demoThumbnailUrl,
+  demoChannelTitle,
+  demoVideoTitle,
+  demoVideoUrl,
+} from "../utils/constants";
 import { abbreviateNumber } from "js-abbreviation-number";
-
 
 const RelatedVideoSection = ({
   videos: {
@@ -14,46 +18,48 @@ const RelatedVideoSection = ({
     lengthText,
     publishedTimeText,
     viewCount,
-    description
+    description,
   },
 }) => {
   return (
-    <div className="sm-device flex justify-start max-w-[calc(100%-26px)]">
+    <div className="sm-device flex max-w-[calc(100%-26px)] justify-start">
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className="relative w-[180px] h-[100px]">
+        <div className="relative h-[100px] w-[180px]">
           <img
             src={thumbnail?.[0]?.url || demoThumbnailUrl}
             alt={title}
-            className="w-[180px] h-[100px] border rounded-xl"
+            className="h-[100px] w-[180px] rounded-xl border"
           />
-          <p className="text-yt-white font-semibold text-sm rounded-lg bg-yt-black bg-opacity-90 absolute top-[70%] right-2 pl-2 pr-2">
+          <p className="absolute right-2 top-[70%] rounded-lg bg-yt-black bg-opacity-90 pl-2 pr-2 text-sm font-semibold text-yt-white">
             {lengthText}
           </p>
         </div>
       </Link>
 
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-        <div className=" sm ml-4 md:w-[100%] h-[106px] rounded-b-xl mb-5 max-w-[600px]">
+        <div className=" sm mb-5 ml-4 h-[106px] max-w-[600px] rounded-b-xl md:w-[100%]">
           <div>
-            <h3 className="text-yt-white font-medium">
-              {title.slice(0,30) || demoVideoTitle.slice(0, 30)}...
+            <h3 className="font-medium text-yt-white">
+              {title.slice(0, 30) || demoVideoTitle.slice(0, 30)}...
             </h3>
-            <p className="text-yt-grey text-[13px]">
-            {`${abbreviateNumber(viewCount)}`} ● {publishedTimeText}
-          </p>
+            <p className="text-[13px] text-yt-grey">
+              {`${abbreviateNumber(viewCount)}`} ● {publishedTimeText}
+            </p>
           </div>
           <div className="flex py-1 ">
             <img
               src={authorThumbnail?.[0]?.url}
               alt="channelImage"
-              className="rounded-full w-6 h-6 "
+              className="h-6 w-6 rounded-full "
             />
-            <p className="text-yt-grey ml-2">{channelTitle || demoChannelTitle}</p>
+            <p className="ml-2 text-yt-grey">
+              {channelTitle || demoChannelTitle}
+            </p>
           </div>
-          <p className="text-yt-grey text-sm">{description}</p>
+          <p className="text-sm text-yt-grey">{description}</p>
         </div>
       </Link>
     </div>
   );
 };
-export default RelatedVideoSection
+export default RelatedVideoSection;

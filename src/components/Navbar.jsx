@@ -4,50 +4,55 @@ import { Context } from "../context/contextAPi";
 import { logo } from "../utils/constants";
 import { AiOutlineMenu } from "react-icons/ai";
 // import {FaRegBell} from "react-icons/fa";
-import {PiMagnifyingGlassLight} from "react-icons/pi"
+import { PiMagnifyingGlassLight } from "react-icons/pi";
 // import { MdMic } from "react-icons/md";
 // import {BiVideoPlus} from "react-icons/bi"
 const Navbar = () => {
-  
-  const {open, setOpen} = useContext(Context)
+  const { open, setOpen } = useContext(Context);
   const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-    const handleSubmit = (e)=>{
-          e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-          if(searchTerm){
-            navigate(`/search/${searchTerm}`)
-            setSearchTerm('');
-          }
-          
-      }
+    if (searchTerm) {
+      navigate(`/search/${searchTerm}`);
+      setSearchTerm("");
+    }
+  };
   return (
-      // Nav left section  
-    <div className="bg-yt-black h-14 flex items-center pl-4 pr-5 justify-between fixed w-full z-50">
-      <div className="text-yt-white p-2 w-10 text-center hover:bg-yt-light-black rounded-full">
-        <AiOutlineMenu size={20} onClick={()=>setOpen(!open)} />
+    // Nav left section
+    <div className="fixed z-50 flex h-14 w-full items-center justify-between bg-yt-black pl-4 pr-5">
+      <div className="w-10 rounded-full p-2 text-center text-yt-white hover:bg-yt-light-black">
+        <AiOutlineMenu size={20} onClick={() => setOpen(!open)} />
       </div>
 
-      <div className="py-5 w-32 pr-3">
+      <div className="w-32 py-5 pr-3">
         <Link to="/">
           <img src={logo} alt="logo" className="object-contain" />
         </Link>
       </div>
 
-       {/* Nav middle section  */}
+      {/* Nav middle section  */}
 
-      <div className="h-10 flex flex-row items-center flex-1 ml-40">
-        <form autoComplete="on" onSubmit={handleSubmit} className="bg-yt-black rounded-3xl w-[593px] h-10 border border-yt-light-black focus:border-yt-blue flex items-center">
+      <div className="ml-40 flex h-10 flex-1 flex-row items-center">
+        <form
+          autoComplete="on"
+          onSubmit={handleSubmit}
+          className="flex h-10 w-[593px] items-center rounded-3xl border border-yt-light-black bg-yt-black focus:border-yt-blue"
+        >
           <input
             type="text"
             placeholder="Search"
-            className="w-full bg-yt-black h-6 ml-6 text-yt-white align-middle text-start focus:outline"
+            className="ml-6 h-6 w-full bg-yt-black text-start align-middle text-yt-white focus:outline"
             value={searchTerm}
-            onChange={(e)=>setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="w-16 h-10 px-2 py-0.5  border-l-2 bg-yt-light-black rounded-r-3xl">
-          <PiMagnifyingGlassLight size={22} className="text-yt-white  inline-block text-center font-thin"/>
+          <button className="h-10 w-16 rounded-r-3xl border-l-2  bg-yt-light-black px-2 py-0.5">
+            <PiMagnifyingGlassLight
+              size={22}
+              className="inline-block  text-center font-thin text-yt-white"
+            />
           </button>
         </form>
         {/* <div className="text-yt-white bg-yt-light w-10 h-10 items-center flex justify-center hover:bg-yt-light-black rounded-full ml-4">
@@ -55,20 +60,22 @@ const Navbar = () => {
         </div> */}
       </div>
 
-        {/* Nav right section  */}
+      {/* Nav right section  */}
 
       <div className="flex items-center justify-center">
-          <div className="flex flex-row items-center">
-            {/* <div className="mr-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
+        <div className="flex flex-row items-center">
+          {/* <div className="mr-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
               <BiVideoPlus size={25} className="text-center text-yt-white" />
             </div> 
             <div className="mx-2 p-2 w-10 hover:bg-yt-light-black rounded-full cursor-pointer">
               <FaRegBell size={20} className="text-center text-yt-white"/>
             </div> */}
-            <div>
-              <button className="bg-yt-black text-yt-white px-4 py-1 border-solid border-2 border-yt-blue rounded-3xl">Sign In</button>
-            </div>
+          <div>
+            <button className="rounded-3xl border-2 border-solid border-yt-blue bg-yt-black px-4 py-1 text-yt-white">
+              Sign In
+            </button>
           </div>
+        </div>
       </div>
     </div>
   );
