@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { Context } from "../context/contextAPi";
-import { logo } from "../utils/constants";
+import  logo  from "../assets/Logo.png";
 import { AiOutlineMenu } from "react-icons/ai";
 // import {FaRegBell} from "react-icons/fa";
 import { PiMagnifyingGlassLight } from "react-icons/pi";
@@ -27,9 +27,9 @@ const Navbar = () => {
         <AiOutlineMenu className="sidebar" size={20} onClick={() => setOpen(!open)} />
       </div>
 
-      <div className="w-32 py-5 pr-3 ">
+      <div className=" md:w-64 py-5">
         <Link to="/">
-          <img src={logo} alt="logo" className="ml-[-50px] md:ml-[0px]" />
+          <img src={logo} alt="logo" className="ml-[-60px] md:ml-[0px]" />
         </Link>
       </div>
 

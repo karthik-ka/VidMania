@@ -69,7 +69,7 @@ export const CategoryItems = [
 
 
 
-export const logo= "https://github.com/antonfrancisjeejo/youtube-clone-react-tailwindcss/blob/main/src/assets/yt-logo-white.png?raw=true";
+// export const logo= "https://github.com/antonfrancisjeejo/youtube-clone-react-tailwindcss/blob/main/src/assets/yt-logo-white.png?raw=true";
 
 export const demoThumbnailUrl = 'https://i.ibb.co/G2L2Gwp/API-Course.png';
 export const demoChannelUrl = '/channel/UCmXmlB4-HJytD7wek0Uo97A';
