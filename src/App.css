@@ -44,7 +44,9 @@ body{
   .searchFeed-section{
     flex-direction: column;
   }
-  .sidebar{
-    display: none;
-  }
+}
+@media screen and (max-width:740px){
+    .sidebar{
+      display: none;
+    }
 }
