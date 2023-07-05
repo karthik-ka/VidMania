@@ -25,4 +25,4 @@ The user interface is designed to be responsive and user-friendly, providing an 
 
 ![channel](https://github.com/karthik-ka/VidMania/assets/81426274/1cf7fe1a-1548-402d-8482-34e909820e90)
 </div>
-<h4>Demo link: </h4>
+<h4>Demo link: https://vidmania.netlify.app/ </h4>
