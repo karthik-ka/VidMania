@@ -14,7 +14,7 @@ The user interface is designed to be responsive and user-friendly, providing an 
 <div>
 <h2>Home Page</h2>
   
-![screenshot](https://github.com/karthik-ka/VidMania/assets/81426274/8f28f89a-b892-4f47-a196-29d212a6f80b)
+![home](https://github.com/karthik-ka/VidMania/assets/81426274/e82fc9ea-5df7-468a-9b76-0831eef567e4)
 <h2>Video Feed</h2>
 
 ![screenshot 1](https://github.com/karthik-ka/VidMania/assets/81426274/228169da-77fa-4e0a-a1a9-9524f01c1862)
@@ -26,3 +26,4 @@ The user interface is designed to be responsive and user-friendly, providing an 
 ![channel](https://github.com/karthik-ka/VidMania/assets/81426274/1cf7fe1a-1548-402d-8482-34e909820e90)
 </div>
 <h4>Demo link: https://vidmania.netlify.app/ </h4>
+
